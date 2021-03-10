@@ -1,0 +1,2 @@
+C:\Users\jadeh\OneDrive\Documents\PSoC Creator\MyWorkspace\Workspace01\Design01.cydsn\TopDesign\TopDesign.cysch
+C:\Users\jadeh\OneDrive\Documents\PSoC Creator\MyWorkspace\Workspace01\Design01.cydsn\Design01.cydwr

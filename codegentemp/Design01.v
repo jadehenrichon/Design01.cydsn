@@ -1,6 +1,6 @@
 // ======================================================================
 // Design01.v generated from TopDesign.cysch
-// 03/18/2021 at 20:35
+// 03/22/2021 at 09:31
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -342,7 +342,7 @@ endmodule
 // top
 module top ;
 
-          wire  Net_24;
+          wire  Net_26;
           wire  Net_21;
           wire  Net_20;
           wire  Net_19;
@@ -402,14 +402,6 @@ module top ;
         .tx_en_out(Net_20),
         .tx_out(Net_21));
 
-
-	cy_mxs40_isr_v1_0
-		#(.deepsleep_required(0),
-		  .int_type(2'b10))
-		Bouton_ISR
-		 (.int_signal(1'b1));
-
-
 	wire [0:0] tmpFB_0__Bouton_net;
 	wire [0:0] tmpIO_0__Bouton_net;
 	electrical [0:0] tmpSIOVREF__Bouton_net;
@@ -444,6 +436,21 @@ module top ;
 		  .fb({tmpFB_0__Bouton_net[0:0]}),
 		  .io({tmpIO_0__Bouton_net[0:0]}),
 		  .siovref(tmpSIOVREF__Bouton_net));
+
+
+
+	cy_gsref_v1_0
+		#(.guid("8C3B410E-0600-5ECF-95DD-0AF91BF8D8A7"))
+		GlobalSignal_1
+		 (.sig_out(Net_26));
+
+
+
+	cy_mxs40_isr_v1_0
+		#(.deepsleep_required(0),
+		  .int_type(2'b10))
+		Bouton_ISR
+		 (.int_signal(Net_26));
 
 
 

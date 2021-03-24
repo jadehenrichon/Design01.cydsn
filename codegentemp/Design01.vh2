@@ -2,7 +2,7 @@
 --	Conversion of Design01.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Mar 18 20:35:28 2021
+--	Mon Mar 22 09:31:13 2021
 --
 
 USE cypress.cypress.all;
@@ -53,6 +53,7 @@ SIGNAL Net_21 : bit;
 SIGNAL tmpFB_0__Bouton_net_0 : bit;
 SIGNAL tmpIO_0__Bouton_net_0 : bit;
 TERMINAL tmpSIOVREF__Bouton_net_0 : bit;
+SIGNAL Net_26 : bit;
 BEGIN
 
 one <=  ('1') ;
@@ -195,11 +196,6 @@ LED:cy_mxs40_gpio_v1_0
 		tr_tx_req=>Net_19,
 		tr_rx_req=>Net_16,
 		tr_i2c_scl_filtered=>\UART_1:Net_161\);
-Bouton_ISR:cy_mxs40_isr_v1_0
-	GENERIC MAP(cy_registers=>"",
-		deepsleep_required=>'0',
-		int_type=>"10")
-	PORT MAP(int_signal=>one);
 Bouton:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
@@ -232,5 +228,13 @@ Bouton:cy_mxs40_gpio_v1_0
 		io=>(tmpIO_0__Bouton_net_0),
 		annotation=>(open),
 		siovref=>(tmpSIOVREF__Bouton_net_0));
+GlobalSignal_1:cy_gsref_v1_0
+	GENERIC MAP(guid=>"8C3B410E-0600-5ECF-95DD-0AF91BF8D8A7")
+	PORT MAP(sig_out=>Net_26);
+Bouton_ISR:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'0',
+		int_type=>"10")
+	PORT MAP(int_signal=>Net_26);
 
 END R_T_L;
